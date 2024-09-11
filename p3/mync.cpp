@@ -149,13 +149,9 @@ int create_server(char mode, int port, const std::string& exe, const std::string
         switch (mode) {
             case 'i':
                 std::cout << "case i" << std::endl;
-               //dup2(client_sock, 0);  // Redirect standard input to the server socket
-                                dup2(client_sock, 1);  // Redirect standard output to the client socket
+                dup2(client_sock, 1);  // Redirect standard output to the client socket
                 break;
-            // case 'o':
-            //     std::cout << "case o" << std::endl;
-            //     dup2(client_sock, 1);  // Redirect standard output to the client socket
-            //     break;
+                
             case 'b':
                 std::cout << "case b" << std::endl;
                 //dup2(client_sock, 0);  // Redirect both standard input and output to the client socket
